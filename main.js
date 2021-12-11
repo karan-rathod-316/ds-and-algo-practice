@@ -25,12 +25,21 @@ function palindrome(str) {
 //   reverseInt(-90) === -9
 
 function reverseInt(n) {
-  const reversed = n
-    .toString()
-    .split('')
-    .reverse()
-    .join('');
+    let reversedInt = 0
+    switch(Math.sign(n)) {
+      case 0:
+        return reversedInt
+      case 1:
+        reversedInt = parseInt(n.toString().split("").reverse().join(""))
+        break;
+      case -1:
+        reversedInt = parseInt(n.toString().replace('-', '').split("").reverse().join("")) * -1
+        break;
+      default:
+        return null
+    }
+    return reversedInt
+  }
 
-  return parseInt(reversed) * Math.sign(n);
-}
+
 
